@@ -1,0 +1,131 @@
+Data Scientist page is loaded
+Data Scientist
+Apply
+locations
+Minneapolis
+Chicago
+New York
+time type
+Full time
+posted on
+Posted Yesterday
+job requisition id
+JR100077
+
+About Ovative Group:
+
+Ovative Group is an independent, full-funnel media, measurement, and creative firm. Leveraging our deep industry expertise, we help brands like Best Buy, Domino's, American Eagle, The Home Depot, Post, Disney, Tumi, Michael Kors, Boost Mobile, and UnitedHealth Group transform their media and measurement programs. The result? Profitable growth that speaks for itself.
+
+ 
+
+At Ovative, we don't just track data, we redefine success. How do we do it? Our proprietary MarTech platform, EMRge helps businesses transform marketing into a driver of sustainable growth. Powered by Enterprise Marketing Return (EMR), our differentiated approach to holistic media buying, planning, and measurement, EMRge is the first MarTech platform to measure businesses holistically. We're all about raising the bar every day, and it shows. Our work has been recognized by organizations like Digiday, Google, Inc. 5000, USA Today, and Search Engine Land.
+
+About the Role:
+
+The Ovative Group Data Scientist position is an opportunity to take your next career step at a fast-growing company that has the highest standards for talent, fun, and client success. The ideal candidate demonstrates great critical thinking, sophisticated understanding of the data science landscape, familiarity with the marketing ecosystem and phenomenal communication skills. They are excited to play a pivotal role in helping Ovative continue our journey towards measuring and optimizing against the true enterprise impact of marketing dollars, and ultimately unlocking powerful business results for our clients.
+
+As the Data Scientist, you will play a key role in:
+
+Developing and advancing marketing measurement capabilities that unlock our company vision to transform the measure of marketing success in the industry. You will be at the forefront of developing and delivering differentiated marketing data science and measurement solutions that include maximizing profitable enterprise revenue and customer value for our clients.  
+
+Partnering with driven, solution-minded experts, business leaders, analysts, and other data scientists at Ovative in engaging with clients and defining approaches and road maps for solutions to business problems.
+
+Working in a team with technology leaders, product owners and engineers to convert novel solutions to scalable new services and products at Ovative.
+
+Being a part of an inclusive culture that inspires and motivates the team and attracts new, diverse technical talent to the organization.
+
+Role Responsibilities:
+
+Technical contributor in a high-performance multi-disciplinary team of data scientists, data engineers and product managers, and bringing in executional excellence to elevate the entire product space.
+
+Drive value across multiple business verticals by contributing to the technical development and deployment of impactful and interpretable algorithms related to Media Mix Models and Forecasting.
+
+Communicating the results of your DS work to technical and non-technical stakeholders.
+
+Serve as the trusted data science consult and expert to internal stakeholder teams
+
+Requirements:
+
+2-5 Years of data science/analytics experience
+
+Robust programming experience with key languages like R (preferably) and/or Python and SQL.
+
+Deploying machine learning models, understanding of Frequentist and Bayesian Paradigms, good principles of model building, interpretability and applicability, strong understanding of mathematical principles and statistics
+
+Familiarity with Data Science tech stack and tools for Code versioning (Git), Containerization (Docker), Cloud (Google Cloud Platform)
+
+Effective communication skills for technical and non-technical audiences
+
+An Entrepreneurial Mindset that leads to problem solutions with speed and multi-disciplinary collaboration
+
+Preferred qualifications: Prior focus on digital marketing analytics
+
+Pay Transparency 
+
+At Ovative, we offer a transparent view into three core components of your total compensation package: Base Salary, Annual Bonus, and Benefits. The salary range for this position below is inclusive of an annual bonus. Actual offers are made with consideration for relevant experience and anticipated impact. Additional benefits information is provided below. 
+
+For our Sr. Analyst positions, our compensation ranges from $75,000 to $93,000, which is inclusive of a 15% bonus.
+
+Benefits of Working at Ovative Group: 
+
+We provide strong, competitive, holistic benefits that understand the importance of your life inside and out of work.  
+
+Culture:  
+
+Culture matters and we’ve been recognized as a Top Workplace for ten years running because of it. We demand trust and transparency from each other. We believe in doing the hard and complicated work others put off. We’re open in communication and floor plan. We’re flat – our interns sit next to VPs, our analysts work closely with senior leaders, and our CEO interacts with every single person daily. Put together, these elements help foster an environment where smart people can support each other in performing to their highest potential.  
+
+Ovative is committed to fostering an inclusive environment where everyone can participate and thrive. We do not tolerate discrimination of any kind, including on the basis of race, sexual orientation, gender identity, or gender expression. Our policies reflect this commitment—for example, our medical leave benefits are inclusive of same-sex partners, ensuring equitable care and support for all families. 
+
+Compensation and Insurance:  
+
+We strive to hire and retain the best talent. Paying fair, competitive compensation, with a large bonus incentive, and phenomenal health insurance is an important part of this mix.  
+
+We’re rewarded fairly and when the company performs well, we all benefit.  
+
+  
+
+Tangible amenities we enjoy:  
+
+Access to all office spaces in MSP, NYC, and CHI  
+
+Frequent, paid travel to our Minneapolis headquarters for company events, team events, and in-person collaboration with teams
+
+Flexible paid vacation policy  
+
+401k match program  
+
+Top-notch health insurance options, inclusive of same sex partners 
+
+Family formation benefits including reimbursement options for fertility, pregnancy, and parenting needs 
+
+Monthly stipend for your mobile phone and data plan  
+
+Sabbatical program  
+
+Charitable giving via our time and a financial match program  
+
+Shenanigan’s Day  
+
+  
+
+Working at Ovative won’t be easy, but if you like getting your hands dirty, driving results, and being surrounded by the best talent, it’ll be the most rewarding job you’ll ever have. If you think you can make us better, we want to hear from you!  
+
+Similar Jobs (1)
+Data Visualization Engineer
+locations
+3 Locations
+time type
+Full time
+posted on
+Posted Yesterday
+
+Ovative Group is an independent, full-funnel media, measurement, and creative firm. Leveraging our deep industry expertise, we help brands like Best Buy, Domino's, American Eagle, The Home Depot, Post, Disney, Tumi, Michael Kors, Boost Mobile, and UnitedHealth Group transform their media and measurement programs. The result? Profitable growth that speaks for itself.
+
+ 
+
+At Ovative, we don't just track data, we redefine success. How do we do it? Our proprietary MarTech platform, EMRge helps businesses transform marketing into a driver of sustainable growth. Powered by Enterprise Marketing Return (EMR), our differentiated approach to holistic media buying, planning, and measurement, EMRge is the first MarTech platform to measure businesses holistically. We're all about raising the bar every day, and it shows. Our work has been recognized by organizations like Digiday, Google, Inc. 5000, USA Today, and Search Engine Land.
+
+Read More
+
+---RAW HTML---
+
