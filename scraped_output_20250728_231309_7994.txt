@@ -1,17 +1,17 @@
-Sr. Machine Learning Engineer page is loaded
-Sr. Machine Learning Engineer
+Sr Software Development Engineer (Full Stack) - Evisort AI page is loaded
+Sr Software Development Engineer (Full Stack) - Evisort AI
 Apply
 remote type
 Flex
 locations
-Canada, AB, Calgary
 Canada, BC, Vancouver
+USA, WA, Seattle
 time type
 Full Time
 posted on
-Posted Yesterday
+Posted Today
 job requisition id
-JR-0099217
+JR-0099149
 
 Your work days are brighter here.
 
@@ -29,64 +29,74 @@ In addition, Workday will never ask candidates to pay a recruiting fee, or pay f
 
 About the Team
 
-Are you motivated by witnessing machine learning/AI products come to life in production settings which impact tens of millions of people? As part of a global, high-growth technology company, our work supports thousands of the largest global companies and more than 30 million end users. Workday’s Machine Learning organization is bringing “AI first” products to life at every step of the Workday product offering. We’re looking for highly creative, results-focused, and deeply skilled machine learning engineers/scientists to join us in building innovative AI solutions.
+Join the Evisort team at Workday, where our mission is to transform how business deals get done. In a space often slowed by inefficient contract management systems, we provide an intelligent solution that helps businesses accelerate, scale, and safeguard operations — enabling legal and business professionals to drive strategic impact.
+
+At Evisort, we’re building innovative AI technology that makes contracts searchable, actionable, and manageable — empowering teams to work smarter, reduce risk, and boost efficiency. By eliminating manual tasks and simplifying complex workflows, we help organizations make more confident decisions, faster.
+
+We believe legal documents shouldn’t slow teams down. That’s why we’re reimagining contract management — removing friction and giving talented people the tools they need to thrive.
+
+Our team shares a deep passion for Workday’s core values: innovation, integrity, and putting people first. If this sounds like your kind of team, we’d love to hear from you!
 
 About the Role
 
-As a Sr. Machine Learning Engineer, you will have the opportunity to tackle significant problems, which comes with developing and delivering global critical enterprise software using your expertise in design, coding, algorithms, and complexity analysis. Your primary focus will be to:
+Evisort Engineering is growing! As a Fullstack Software Engineer, you’ll join a collaborative, cross-functional team working to enhance and expand our AI-driven contract management platform. You’ll work closely with engineers, product managers, data scientists, and designers to help deliver scalable, user-centric solutions that transform how legal and business teams manage their contracts.
 
-Analyze, design, program, debug, and modify software improvements
+Your technical contributions and team-first mindset will play a key role in delivering high-impact products that scale our AI capabilities and help global organizations simplify complex business processes.
 
-Take initiative, exhibit creative thinking, have the determination to turn data into real-life insights
+You will:
 
-Work on problems related to performance, scalability, and resilience
+Collaborate with engineering, data science, product, and design teams to build and evolve our vision, strategy, and roadmap
 
-Design and develop a product in a development environment where decisions are based on data
+Participate in a supportive, iterative team culture that values curiosity, learning, and strong engineering practices
 
-Write and maintain robust, efficient, and testable code using design patterns, object orientation, and machine learning frameworks
+Contribute to the growth and success of your teammates through knowledge sharing and mentorship
 
-Collaborate with team mates on code reviews, knowledge share, hackathons, etc.
-
-Provides thoughtful and productive code review feedback that is seen by teammates as a significant improvement
+Take ownership of multiple functional areas in our platform — from development to production (“you build it, you run it”)
 
 About You
 
-Basic Qualifications
+Basic Qualifications:
 
-6 or more years of demonstrated experience with the development of software systems or use of machine learning algorithms in real-life products
+P4 Sr Software Development Engineer (Full Stack)
 
-5 or more years of verifiable experience with an object-oriented language such as Java, Python, Scala, etc.
+8+ years of experience in software engineering
 
-Proven experience with Agile methodologies
+5+ years experience with a web development framework (Python preferred: Flask, Django, or FastAPI)
 
-Other Qualifications
+5+ years with a Relational DB (PostgreSQL preferred)
 
-Experience working with Product Managers, understanding business requirements, and translating them into technical
+Other Qualifications:
 
-Writes modular, idiomatic, and stylistically consistent code that is easy to read and is well documented.
+Experience building and operating SaaS products in cloud environments (AWS preferred)
 
-Comprehensive understanding of object-oriented programming and design patterns
+Familiarity with the tradeoffs and architecture of modern distributed systems
 
-Shown familiarity UML modeling and diagrams
+Knowledge of software development best practices (DevOps, CI/CD, automated testing, observability)
 
-Experience with unit testing tools and integration tests tools
+Hands-on experience with containerization technologies (Docker, Kubernetes)
 
-Experience with JSON, Avro, and other data structures and integration technologies.
+Familiarity with Elasticsearch
 
-Experience designing and developing business applications (knowledge of Financials products a plus)
+Exposure to additional programming languages like Java (backend) and TypeScript (frontend/fullstack) is a plus
 
-Must be strong at working in a team setting and able to communicate superbly well
+Proven success working within fast-paced, agile environments and cross-functional teams
+
+Strong communication skills, with the ability to collaborate with both technical and non-technical partners
+
+Comfortable working with ambiguity and translating complex problems into clear, thoughtful solutions
+
+Committed to fostering an inclusive, team-oriented environment and contributing to a culture of continuous improvement
 
 
-Workday Pay Transparency Statement 
+Workday Pay Transparency Statement
 
-The annualized base salary ranges for the primary location and any additional locations are listed below.  Workday pay ranges vary based on work location. As a part of the total compensation package, this role may be eligible for the Workday Bonus Plan or a role-specific commission/bonus, as well as annual refresh stock grants. Recruiters can share more detail during the hiring process. Each candidate’s compensation offer will be based on multiple factors including, but not limited to, geography, experience, skills, job duties, and business need, among other things. For more information regarding Workday’s comprehensive benefits, please click here.
+Workday pay ranges vary based on work location. As a part of the total compensation package, this role may be eligible for the Workday Bonus Plan or a role-specific commission/bonus, as well as annual refresh stock grants. Recruiters can share more detail during the hiring process. Each candidate’s compensation offer will be based on multiple factors including, but not limited to, geography, experience, skills, job duties, and business need, among other things. For more information regarding Workday’s comprehensive benefits, please click here.
 
-Primary Location: CAN.AB.Calgary
+Primary Location: CAN.BC.Vancouver
 
-Primary CAN Base Pay Range: $148,000 - $222,000 CAD
+Primary Location Base Pay Range:  $132,800 CAD - $199,200 CAD
 
-Additional CAN Location(s) Base Pay Range: $148,000 - $222,000 CAD
+Primary CAN Base Pay Range: $132,800 - $199,200 CAD
 
 
 
@@ -101,6 +111,37 @@ Workday is an Equal Opportunity Employer including individuals with disabilities
 
 Are you being referred to one of our roles? If so, ask your connection at Workday about our Employee Referral process!
 
+Similar Jobs (5)
+Sr Software Engineer (Full Stack) - Evisort
+remote type
+Flex
+locations
+Canada, BC, Vancouver
+time type
+Full Time
+posted on
+Posted 12 Days Ago
+Sr Software Engineer (Front End) - Evisort AI
+remote type
+Flex
+locations
+2 Locations
+time type
+Full Time
+posted on
+Posted 6 Days Ago
+time left to apply
+End Date: August 22, 2025 (24 days left to apply)
+Software Engineer (Front End) - Evisort AI
+remote type
+Flex
+locations
+3 Locations
+time type
+Full Time
+posted on
+Posted Today
+View All 5 Jobs
 Can't find a suitable opening?
 
 Join our talent community and receive the latest Workday news, content, and be first in line for new job opportunities.

@@ -1,17 +1,18 @@
-Sr. Machine Learning Engineer page is loaded
-Sr. Machine Learning Engineer
+Software Engineer (Front End) - Evisort AI page is loaded
+Software Engineer (Front End) - Evisort AI
 Apply
 remote type
 Flex
 locations
-Canada, AB, Calgary
 Canada, BC, Vancouver
+USA, WA, Seattle
+USA, GA, Atlanta
 time type
 Full Time
 posted on
-Posted Yesterday
+Posted Today
 job requisition id
-JR-0099217
+JR-0099144
 
 Your work days are brighter here.
 
@@ -29,64 +30,72 @@ In addition, Workday will never ask candidates to pay a recruiting fee, or pay f
 
 About the Team
 
-Are you motivated by witnessing machine learning/AI products come to life in production settings which impact tens of millions of people? As part of a global, high-growth technology company, our work supports thousands of the largest global companies and more than 30 million end users. Workday’s Machine Learning organization is bringing “AI first” products to life at every step of the Workday product offering. We’re looking for highly creative, results-focused, and deeply skilled machine learning engineers/scientists to join us in building innovative AI solutions.
+Join the Evisort AI team at Workday, which powers Document Intelligence AI and Workday’s CLM and Contract Intelligence offerings.  powering Workday’s CLM and Contract Intelligence Offerings. Our mission is to change the way business deals get done. 
+
+We build ground breaking AI technology that can read and understand contract language to make every part of the deal-making process from drafting, negotiating, reviewing, approving, or managing the contracts happen faster, better, with reduced risks. We build AI first products, and automate manual work, freeing up our customers time and accelerating their businesses. 
+
+You will be joining the Evisort AI team, which functions as a startup within Workday. This is your opportunity to build at the pace of innovation of a startup, while backed by the enormous support and impacting Workday’s incredible customer base of 70M+ users.
 
 About the Role
 
-As a Sr. Machine Learning Engineer, you will have the opportunity to tackle significant problems, which comes with developing and delivering global critical enterprise software using your expertise in design, coding, algorithms, and complexity analysis. Your primary focus will be to:
+Evisort Engineering is expanding and as a result of that a new Software Development unit is being formed. We are looking for a Sr Associate Front-End Engineer to join this team. As such, you will work with a multidisciplinary team of highly skilled engineers, in close collaboration with your Product and Design partners, with the goal of maintaining and expanding our best-in-class contract management offerings. Your technical expertise and ability to work collaboratively so that the sum is greater than the parts will be crucial in realizing our ambitious vision to deliver best-in class-AI at scale, to transform how major companies optimize and streamline key business processes related to negotiating and managing their contracts.
 
-Analyze, design, program, debug, and modify software improvements
+Your role will be instrumental in advancing our AI initiatives and delivering exceptional value to corporate legal departments and business professionals world-wide. 
 
-Take initiative, exhibit creative thinking, have the determination to turn data into real-life insights
+You will:
 
-Work on problems related to performance, scalability, and resilience
+Partner closely with engineering, data science, product management, and design teams to execute the vision, strategy and roadmap
 
-Design and develop a product in a development environment where decisions are based on data
+Participate in a collaborative team culture that encourages iteration and innovation, and a deep understanding of both our business domain and of engineering practices to steer engineering decisions
 
-Write and maintain robust, efficient, and testable code using design patterns, object orientation, and machine learning frameworks
+Have an impact on the professional development and productivity of your teammates
 
-Collaborate with team mates on code reviews, knowledge share, hackathons, etc.
-
-Provides thoughtful and productive code review feedback that is seen by teammates as a significant improvement
+Be part of a team that will own several functional areas of our platform (“you build it, you run it”)
 
 About You
 
+We’re looking for talented people who love a fast-paced environment, want to ship customer value early and often, and make an impact with groundbreaking ideas.  The right candidate for this role is a problem solver first and foremost - they should enjoy tackling challenging problems, coming up with creative solutions, and guiding and teaching their counterparts and teammates about how to leverage their solutions. They bring a sense of urgency, a bias for action, and are outcome driven. 
+
 Basic Qualifications
 
-6 or more years of demonstrated experience with the development of software systems or use of machine learning algorithms in real-life products
+5+ years of experience in software engineering
 
-5 or more years of verifiable experience with an object-oriented language such as Java, Python, Scala, etc.
+Experienced in building and operating SaaS products in cloud environments (AWS preferred)
 
-Proven experience with Agile methodologies
+Experienced in the technologies and tradeoffs involved in building modern distributed systems
 
-Other Qualifications
+Advanced knowledge of modern software development practices (devops, automated testing, observability, etc)
 
-Experience working with Product Managers, understanding business requirements, and translating them into technical
+Front End development expert (technologies, tools, practices, etc)
 
-Writes modular, idiomatic, and stylistically consistent code that is easy to read and is well documented.
+Highly proficient in typescript
 
-Comprehensive understanding of object-oriented programming and design patterns
+Highly proficient in React
 
-Shown familiarity UML modeling and diagrams
+Familiarity with multiple programming languages and paradigms a plus
 
-Experience with unit testing tools and integration tests tools
+Other Qualifications 
 
-Experience with JSON, Avro, and other data structures and integration technologies.
+Successful track record of operating as part of cross-functional teams in fast-paced, agile environments
 
-Experience designing and developing business applications (knowledge of Financials products a plus)
+Highly effective communicator with both technical and non-technical audiences
 
-Must be strong at working in a team setting and able to communicate superbly well
+Excellent communication and interpersonal skills, with the ability to collaborate effectively with legal professionals
+
+Eager to work openly and collaboratively with a diverse team
+
+Comfortable navigating ambiguity to turn hard problems into clear and compelling solutions through reasoning and research
 
 
-Workday Pay Transparency Statement 
+Workday Pay Transparency Statement
 
-The annualized base salary ranges for the primary location and any additional locations are listed below.  Workday pay ranges vary based on work location. As a part of the total compensation package, this role may be eligible for the Workday Bonus Plan or a role-specific commission/bonus, as well as annual refresh stock grants. Recruiters can share more detail during the hiring process. Each candidate’s compensation offer will be based on multiple factors including, but not limited to, geography, experience, skills, job duties, and business need, among other things. For more information regarding Workday’s comprehensive benefits, please click here.
+Workday pay ranges vary based on work location. As a part of the total compensation package, this role may be eligible for the Workday Bonus Plan or a role-specific commission/bonus, as well as annual refresh stock grants. Recruiters can share more detail during the hiring process. Each candidate’s compensation offer will be based on multiple factors including, but not limited to, geography, experience, skills, job duties, and business need, among other things. For more information regarding Workday’s comprehensive benefits, please click here.
 
-Primary Location: CAN.AB.Calgary
+Primary Location: CAN.BC.Vancouver
 
-Primary CAN Base Pay Range: $148,000 - $222,000 CAD
+Primary Location Base Pay Range:  $88,400 CAD - $132,600 CAD
 
-Additional CAN Location(s) Base Pay Range: $148,000 - $222,000 CAD
+Primary CAN Base Pay Range: $106,400 - $159,600 CAD
 
 
 
@@ -101,6 +110,37 @@ Workday is an Equal Opportunity Employer including individuals with disabilities
 
 Are you being referred to one of our roles? If so, ask your connection at Workday about our Employee Referral process!
 
+Similar Jobs (5)
+Sr Software Engineer (Front End) - Evisort AI
+remote type
+Flex
+locations
+2 Locations
+time type
+Full Time
+posted on
+Posted 6 Days Ago
+time left to apply
+End Date: August 22, 2025 (24 days left to apply)
+Sr Software Development Engineer (Full Stack) - Evisort AI
+remote type
+Flex
+locations
+2 Locations
+time type
+Full Time
+posted on
+Posted Today
+Sr Software Engineer (Full Stack) - Evisort
+remote type
+Flex
+locations
+Canada, BC, Vancouver
+time type
+Full Time
+posted on
+Posted 12 Days Ago
+View All 5 Jobs
 Can't find a suitable opening?
 
 Join our talent community and receive the latest Workday news, content, and be first in line for new job opportunities.

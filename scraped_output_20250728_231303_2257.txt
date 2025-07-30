@@ -1,17 +1,16 @@
-Sr. Machine Learning Engineer page is loaded
-Sr. Machine Learning Engineer
+BT Delivery Excellence Lead page is loaded
+BT Delivery Excellence Lead
 Apply
 remote type
 Flex
 locations
-Canada, AB, Calgary
-Canada, BC, Vancouver
+USA, GA, Atlanta
 time type
 Full Time
 posted on
-Posted Yesterday
+Posted Today
 job requisition id
-JR-0099217
+JR-0098210
 
 Your work days are brighter here.
 
@@ -29,64 +28,89 @@ In addition, Workday will never ask candidates to pay a recruiting fee, or pay f
 
 About the Team
 
-Are you motivated by witnessing machine learning/AI products come to life in production settings which impact tens of millions of people? As part of a global, high-growth technology company, our work supports thousands of the largest global companies and more than 30 million end users. Workday’s Machine Learning organization is bringing “AI first” products to life at every step of the Workday product offering. We’re looking for highly creative, results-focused, and deeply skilled machine learning engineers/scientists to join us in building innovative AI solutions.
+Workday’s Business Technology (BT) organization continues its mission to deliver unparalleled value to our business partners and customers. To support this mission, the BT Strategy team is responsible for developing the long-term vision for BT, setting goals and objectives, and ensuring that we have the right plans in place to move with speed at scale. The team collaborates closely with cross-functional teams, business partners, and executives to understand the needs and priorities of the business, and supports the development of strategies that will help BT meet those needs.
 
 About the Role
 
-As a Sr. Machine Learning Engineer, you will have the opportunity to tackle significant problems, which comes with developing and delivering global critical enterprise software using your expertise in design, coding, algorithms, and complexity analysis. Your primary focus will be to:
+We are looking for an experienced and passionate leader to spearhead the development and implementation of a robust Software Development Lifecycle (SDLC) framework within Workday’s Business Technology organization. As BT’s Delivery Excellence Lead, you will play a critical role in driving maturity, standardization, efficiency, and innovation in the BT organization’s operations through a strong focus on SDLC and agile foundations. This role requires a leader with exceptional communication, collaboration, and mentorship skills, capable of coaching teams to higher levels of performance.
 
-Analyze, design, program, debug, and modify software improvements
+Key Responsibilities:
 
-Take initiative, exhibit creative thinking, have the determination to turn data into real-life insights
+SDLC Framework Development & Implementation:
 
-Work on problems related to performance, scalability, and resilience
+Design, develop, and implement a comprehensive SDLC framework that aligns with industry best practices and meets the specific needs of the Business Technology organization.
 
-Design and develop a product in a development environment where decisions are based on data
+Define clear processes, standards, and guidelines for each phase of the SDLC, encompassing requirements gathering, design, development, testing, deployment, and maintenance.
 
-Write and maintain robust, efficient, and testable code using design patterns, object orientation, and machine learning frameworks
+Establish metrics and reporting mechanisms to track SDLC performance, identify areas for improvement, and demonstrate value to the organization.
 
-Collaborate with team mates on code reviews, knowledge share, hackathons, etc.
+Drive adoption of the SDLC framework across all Business Technology initiatives, ensuring consistent and standardized practices.
 
-Provides thoughtful and productive code review feedback that is seen by teammates as a significant improvement
+Leading Delivery Excellence & Agile Coaching:
+
+Lead and mentor teams (dotted line reporting) to provide guidance, support, and training on the implementation and maintenance of the SDLC framework and agile methodologies.
+
+Act as an agile coach, guiding teams in adopting and maturing agile principles and practices to optimize delivery.
+
+Stay abreast of industry trends and emerging technologies in the SDLC space, recommending updates and enhancements to the framework as needed.
+
+Collaboration & Communication:
+
+Collaborate effectively with various stakeholders, including architects, security SMEs, program managers, business systems analysts, developers, testers, business partners, and senior leadership.
+
+Communicate effectively with all levels of the organization, providing clear and concise updates on SDLC initiatives and delivery excellence progress.
+
+Facilitate workshops and training sessions to promote understanding and adoption of SDLC and agile best practices.
 
 About You
 
-Basic Qualifications
+Basic Qualifications:
 
-6 or more years of demonstrated experience with the development of software systems or use of machine learning algorithms in real-life products
+8+ years of experience in software development and/or business analysis.
 
-5 or more years of verifiable experience with an object-oriented language such as Java, Python, Scala, etc.
+8+ years of professional experience in the successful implementation of SDLC frameworks.
 
-Proven experience with Agile methodologies
-
-Other Qualifications
-
-Experience working with Product Managers, understanding business requirements, and translating them into technical
-
-Writes modular, idiomatic, and stylistically consistent code that is easy to read and is well documented.
-
-Comprehensive understanding of object-oriented programming and design patterns
-
-Shown familiarity UML modeling and diagrams
-
-Experience with unit testing tools and integration tests tools
-
-Experience with JSON, Avro, and other data structures and integration technologies.
-
-Experience designing and developing business applications (knowledge of Financials products a plus)
-
-Must be strong at working in a team setting and able to communicate superbly well
+Extensive knowledge of various SDLC methodologies and their practical applications. 
 
 
-Workday Pay Transparency Statement 
+Other Qualifications:
+
+Demonstrated ability to drive projects from conception to completion, consistently delivering measurable results and taking accountability for outcomes.
+
+Demonstrated ability to proactively identify opportunities for improvement, analyze current processes, and develop and implement effective solutions, without waiting for direction.
+
+Ability to operate effectively in ambiguous situations, taking ownership of tasks and driving them to completion.
+
+Experience leading and mentoring teams, preferably in a matrixed environment, with a focus on coaching for performance.
+
+Excellent communication, interpersonal, and presentation skills.
+
+Strong analytical and problem-solving abilities.
+
+Strong organization and time management skills.
+
+Enthusiastic self-starter who thinks strategically, creatively solves problems, and has a growth mindset.
+
+Affinity for technology and innovation, and comfortable in a fast-paced environment.
+
+Bachelor's degree in Computer Science, Information Systems, or a related field.
+
+
+Workday Pay Transparency Statement
 
 The annualized base salary ranges for the primary location and any additional locations are listed below.  Workday pay ranges vary based on work location. As a part of the total compensation package, this role may be eligible for the Workday Bonus Plan or a role-specific commission/bonus, as well as annual refresh stock grants. Recruiters can share more detail during the hiring process. Each candidate’s compensation offer will be based on multiple factors including, but not limited to, geography, experience, skills, job duties, and business need, among other things. For more information regarding Workday’s comprehensive benefits, please click here.
 
-Primary Location: CAN.AB.Calgary
+Primary Location: USA.GA.Atlanta
 
-Primary CAN Base Pay Range: $148,000 - $222,000 CAD
 
-Additional CAN Location(s) Base Pay Range: $148,000 - $222,000 CAD
+ 
+
+Primary Location Base Pay Range:  $140,800 USD - $211,200 USD
+
+
+ 
+
+Additional US Location(s) Base Pay Range: $133,800 USD - $237,600 USD
 
 
 
@@ -101,6 +125,16 @@ Workday is an Equal Opportunity Employer including individuals with disabilities
 
 Are you being referred to one of our roles? If so, ask your connection at Workday about our Employee Referral process!
 
+Similar Jobs (1)
+Principal Program Manager, BT Strategy
+remote type
+Flex
+locations
+USA, GA, Atlanta
+time type
+Full Time
+posted on
+Posted 11 Days Ago
 Can't find a suitable opening?
 
 Join our talent community and receive the latest Workday news, content, and be first in line for new job opportunities.

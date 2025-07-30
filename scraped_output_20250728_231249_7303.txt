@@ -1,99 +1,96 @@
-Sr. Machine Learning Engineer page is loaded
-Sr. Machine Learning Engineer
+Performance & Deployment Success Partner (Production Readiness Manager) page is loaded
+Performance & Deployment Success Partner (Production Readiness Manager)
 Apply
 remote type
 Flex
 locations
-Canada, AB, Calgary
-Canada, BC, Vancouver
+Costa Rica
 time type
 Full Time
 posted on
-Posted Yesterday
+Posted Today
 job requisition id
-JR-0099217
+JR-0099198
 
 Your work days are brighter here.
 
 At Workday, it all began with a conversation over breakfast. When our founders met at a sunny California diner, they came up with an idea to revolutionize the enterprise software market. And when we began to rise, one thing that really set us apart was our culture. A culture which was driven by our value of putting our people first. And ever since, the happiness, development, and contribution of every Workmate is central to who we are. Our Workmates believe a healthy employee-centric, collaborative culture is the essential mix of ingredients for success in business. That’s why we look after our people, communities and the planet while still being profitable. Feel encouraged to shine, however that manifests: you don’t need to hide who you are. You can feel the energy and the passion, it's what makes us unique. Inspired to make a brighter work day for all and transform with us to the next stage of our growth journey? Bring your brightest version of you and have a brighter work day here.
 
-At Workday, we value our candidates’ privacy and data security.  Workday will never ask candidates to apply to jobs through websites that are not Workday Careers. 
-
-  
-
-Please be aware of sites that may ask for you to input your data in connection with a job posting that appears to be from Workday but is not.
-
-  
-
-In addition, Workday will never ask candidates to pay a recruiting fee, or pay for consulting or coaching services, in order to apply for a job at Workday.
-
 About the Team
 
-Are you motivated by witnessing machine learning/AI products come to life in production settings which impact tens of millions of people? As part of a global, high-growth technology company, our work supports thousands of the largest global companies and more than 30 million end users. Workday’s Machine Learning organization is bringing “AI first” products to life at every step of the Workday product offering. We’re looking for highly creative, results-focused, and deeply skilled machine learning engineers/scientists to join us in building innovative AI solutions.
+We are a proactive team within the Customer Support Organization that provides personalised support during deployment period. We are dedicated to ensuring the Workday product delivers maximum performance, we guide our largest and most strategic customers through pre-deployment performance testing and business-critical activities in production. By coordinating internally to meet project deliverables on time, we help customers improve performance and effectively manage their operations.
 
 About the Role
 
-As a Sr. Machine Learning Engineer, you will have the opportunity to tackle significant problems, which comes with developing and delivering global critical enterprise software using your expertise in design, coding, algorithms, and complexity analysis. Your primary focus will be to:
+The Production Readiness Manager (PRM) is a customer-facing role that combines technical expertise, project management, and customer relations. Assigned to large deployments or high-volume business-critical activities, the PRM ensures successful performance testing and transition to production. By collaborating with internal teams, the PRM drives the resolution of performance issues and advocates for customers.
 
-Analyze, design, program, debug, and modify software improvements
+As the "voice of the customer", the PRM takes full ownership of the engagement during deployment. This involves building strong relationships with customers and implementation partners, managing expectations, and using indirect influence to drive timely resolution of issues.
 
-Take initiative, exhibit creative thinking, have the determination to turn data into real-life insights
+Keys to success in this role include:
 
-Work on problems related to performance, scalability, and resilience
+Technical competence and continuous interest in Workday products
 
-Design and develop a product in a development environment where decisions are based on data
+Knowledge of Workday's Architecture and ability to demonstrate it on all engagements 
 
-Write and maintain robust, efficient, and testable code using design patterns, object orientation, and machine learning frameworks
+Ability to use indirect influence and successfully engage with Senior Leadership, Technical, and Functional staff to overcome challenges and drive issues to resolution
 
-Collaborate with team mates on code reviews, knowledge share, hackathons, etc.
+Outstanding time management and prioritizations skills
 
-Provides thoughtful and productive code review feedback that is seen by teammates as a significant improvement
+Hyper-attention to detail
+
+Owning and driving customer escalations for blocking issues
+
+Effectively using sound business judgement, risk avoidance and coordinate team efforts to solve problems
+
+Ability to thrive with ambiguity and manage challenges in a fast-paced environment
+
+Pride in producing quality results!
 
 About You
 
+You enjoy working closely with others, building strong cross-functional relationships and having some laughs along the way! You create a safe teamwork environment, have a passion for learning, sharing new insights and respectfully challenging the status quo. You take a non-dogmatic, framework-agnostic approach to learning and project work - drawing from the most relevant practices and patterns in a thoughtful way to produce great outcomes. You are resourceful and able to act independently even in uncertain scenarios.
+
+You are ambitious and self-driven with passion for strong customer relations and can turn complex technical architecture into a simple and engaging storytelling experience. You accurately report status and skilfully manage issues, risks, and concerns. You effectively implement change management strategies to facilitate smooth adoption of new processes or initiatives.
+
 Basic Qualifications
 
-6 or more years of demonstrated experience with the development of software systems or use of machine learning algorithms in real-life products
+BS or MS in a Technical Degree (ie. Computer Science, MIS) or equivalent technical work experience and acumen
 
-5 or more years of verifiable experience with an object-oriented language such as Java, Python, Scala, etc.
+Production Readiness Manager
 
-Proven experience with Agile methodologies
+4+ years experience providing technical support for complex software and environment issues with a solid grasp of underlying technologies
+
+4+ years experience in customer support, product support, or consulting with a special focus in ERP system performance (SaaS preferred).
+
+Senior Production Readiness Manager
+
+7+ years experience providing technical support for complex software and environment issues with a solid grasp of underlying technologies
+
+5+ years experience in customer support, product support, or consulting with a special focus in ERP system performance (SaaS preferred).
 
 Other Qualifications
 
-Experience working with Product Managers, understanding business requirements, and translating them into technical
+Demonstrated ability to understand and successfully explain technical architecture.
 
-Writes modular, idiomatic, and stylistically consistent code that is easy to read and is well documented.
+Project management experience; ability to balance multiple initiatives and manage competing priorities efficiently.
 
-Comprehensive understanding of object-oriented programming and design patterns
+Excellent verbal, presentation and communication skills, including the ability to chair meetings.
 
-Shown familiarity UML modeling and diagrams
+Demonstrated leadership skills to influence, interact and collaborate with senior leaders as well as technical resources, internally and externally.
 
-Experience with unit testing tools and integration tests tools
+Excellent organization, communication and presentation skills
 
-Experience with JSON, Avro, and other data structures and integration technologies.
+Strong analytical and problem solving skills both technically and functionally.
 
-Experience designing and developing business applications (knowledge of Financials products a plus)
+Crisis management experience is a plus.
 
-Must be strong at working in a team setting and able to communicate superbly well
+Ability to learn new products quickly through instruction and self-training.
 
+Demonstrated ability to handle day-to-day work challenges confidently and to adjust to shifting priorities.
 
-Workday Pay Transparency Statement 
+Comfortable in a fast-paced process-focused environment.
 
-The annualized base salary ranges for the primary location and any additional locations are listed below.  Workday pay ranges vary based on work location. As a part of the total compensation package, this role may be eligible for the Workday Bonus Plan or a role-specific commission/bonus, as well as annual refresh stock grants. Recruiters can share more detail during the hiring process. Each candidate’s compensation offer will be based on multiple factors including, but not limited to, geography, experience, skills, job duties, and business need, among other things. For more information regarding Workday’s comprehensive benefits, please click here.
-
-Primary Location: CAN.AB.Calgary
-
-Primary CAN Base Pay Range: $148,000 - $222,000 CAD
-
-Additional CAN Location(s) Base Pay Range: $148,000 - $222,000 CAD
-
-
-
-Our Approach to Flexible Work
- 
-
-With Flex Work, we’re combining the best of both worlds: in-person time and remote. Our approach enables our teams to deepen connections, maintain a strong community, and do their best work. We know that flexibility can take shape in many ways, so rather than a number of required days in-office each week, we simply spend at least half (50%) of our time each quarter in the office or in the field with our customers, prospects, and partners (depending on role). This means you'll have the freedom to create a flexible schedule that caters to your business, team, and personal needs, while being intentional to make the most of time spent together. Those in our remote "home office" roles also have the opportunity to come together in our offices for important moments that matter.
+Experience with HR, Time Tracking, Recruiting, Financials or Payroll applications (preferably Workday).
 
 Pursuant to applicable Fair Chance law, Workday will consider for employment qualified applicants with arrest and conviction records.
 
