@@ -1,4 +1,4 @@
-// content.js - Enhanced version for structured data extraction
+// content.js - Enhanced version for structured data extraction with header support
 function extractStructuredJobData() {
   const container = document.querySelector('[data-automation-id="jobPostingPage"]');
   if (!container) {
@@ -23,7 +23,7 @@ function extractStructuredJobData() {
         const dd = dl.querySelector("dd");
         text = dd?.innerText?.trim() || dd?.textContent?.trim() || "";
       }
-    }else if (automationId === "requisitionId") {
+    } else if (automationId === "requisitionId") {
       // Extract job ID - remove "job requisition id" prefix
       text = text.replace(/^job\s*requisition\s*id\s*/i, '').trim();
     } else if (automationId === "locations") {
@@ -31,6 +31,9 @@ function extractStructuredJobData() {
       text = text.replace(/\s+/g, ' ').trim();
     } else if (automationId === "jobPostingHeader") {
       // Clean job title
+      text = text.replace(/\s+/g, ' ').trim();
+    } else if (automationId === "header") {
+      // Clean header text (often contains company name and page title)
       text = text.replace(/\s+/g, ' ').trim();
     }
     
@@ -67,6 +70,7 @@ function extractStructuredJobData() {
     employmentType: getElementText("time", container),
     jobId: getElementText("requisitionId", container),
     aboutCompany: getElementText("jobSidebar", container),
+    header: getElementText("header"),  // NEW: Extract header information
     
     // Full job description for analysis
     fullJobDescription: getFullJobText(container),

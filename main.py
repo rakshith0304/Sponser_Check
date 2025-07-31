@@ -7,6 +7,7 @@ from dataclasses import dataclass
 from pydantic import BaseModel
 import json
 from datetime import datetime
+from company_extractor import CompanyNameExtractor
 
 app = FastAPI()
 
@@ -29,6 +30,7 @@ class JobData(BaseModel):
     url: str
     scrapedAt: str
     platform: str
+    header: Optional[str] = "Not found"  # NEW: Added header field as optional
 
 @dataclass
 class SponsorshipAnalysis:
@@ -177,7 +179,7 @@ class VisaSponsorshipAnalyzer:
             negative_indicators=["No sponsorship mentioned"]
         )
 
-def save_job_data(job_data: JobData, analysis: SponsorshipAnalysis):
+def save_job_data(job_data: JobData, analysis: SponsorshipAnalysis, company_result=None):
     """Save job data and analysis results to a file (for future database integration)"""
     try:
         # Create a record with all information
@@ -193,28 +195,57 @@ def save_job_data(job_data: JobData, analysis: SponsorshipAnalysis):
             "analyzed_at": datetime.now().isoformat()
         }
         
+        # Add company information if available
+        if company_result:
+            record["company_info"] = {
+                "company_name": company_result.company_name,
+                "confidence": company_result.confidence,
+                "extraction_method": company_result.extraction_method,
+                "reasoning": company_result.reasoning,
+                "candidates": company_result.candidates
+            }
+        
         # Save to JSON file (can be replaced with database later)
         filename = f"job_analyses.jsonl"
         with open(filename, "a", encoding="utf-8") as f:
             f.write(json.dumps(record) + "\n")
             
-        print(f"✅ Saved job analysis: {job_data.jobTitle} - {job_data.jobId}")
+        company_name = company_result.company_name if company_result else "Unknown"
+        print(f"✅ Saved job analysis: {company_name} - {job_data.jobTitle} - {job_data.jobId}")
         
     except Exception as e:
         print(f"❌ Error saving job data: {e}")
 
-# Initialize analyzer
+# Initialize analyzers
 analyzer = VisaSponsorshipAnalyzer()
+company_extractor = CompanyNameExtractor()
 
 @app.post("/analyze-job")
 async def analyze_job_posting(job_data: JobData):
     """Analyze structured job data for visa sponsorship"""
     
+    # Extract company name with header support
+    company_result = company_extractor.extract_company_name(
+        job_data.url, 
+        job_data.fullJobDescription, 
+        job_data.aboutCompany,
+        job_data.header if job_data.header != "Not found" else None  # Only pass header if found
+    )
+    
+    # Display company name in terminal
+    if company_result.company_name:
+        print(f"🏢 COMPANY: {company_result.company_name}")
+        print(f"   Method: {company_result.extraction_method} (Confidence: {company_result.confidence:.2f})")
+        if len(company_result.candidates) > 1:
+            print(f"   Other candidates: {', '.join(company_result.candidates[:3])}")
+    else:
+        print("🏢 COMPANY: Unknown (could not extract)")
+    
     # Perform sponsorship analysis on full job description
     analysis = analyzer.analyze_sponsorship(job_data.fullJobDescription)
     
-    # Save the data and analysis results
-    save_job_data(job_data, analysis)
+    # Save the data and analysis results (including company info)
+    save_job_data(job_data, analysis, company_result)
     
     # Determine result status for UI
     if analysis.likely_sponsors:
@@ -239,7 +270,9 @@ async def analyze_job_posting(job_data: JobData):
             "location": job_data.location,
             "employment_type": job_data.employmentType,
             "job_id": job_data.jobId,
-            "platform": job_data.platform
+            "platform": job_data.platform,
+            "company_name": company_result.company_name,
+            "company_confidence": round(company_result.confidence, 2)
         }
     }
 
@@ -282,5 +315,6 @@ async def health_check():
 if __name__ == "__main__":
     print("🚀 Starting Workday Job Analyzer API...")
     print("📊 Structured data extraction enabled")
+    print("🏢 Company name extraction enabled (with header support)")
     print("💾 Job data will be saved to job_analyses.jsonl")
     uvicorn.run("main:app", host="127.0.0.1", port=8000, reload=True)

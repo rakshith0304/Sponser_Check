@@ -1,4 +1,4 @@
-// popup.js - Enhanced version with structured data handling
+// popup.js - Enhanced version with structured data handling and header support
 document.getElementById("checkBtn").addEventListener("click", () => {
   const statusDiv = document.getElementById("status");
   const resultDiv = document.getElementById("result");
@@ -94,6 +94,9 @@ function extractAndAnalyzeStructuredJob() {
         } else if (automationId === "jobPostingHeader") {
           // Clean job title
           text = text.replace(/\s+/g, ' ').trim();
+        } else if (automationId === "header") {
+          // Clean header text (often contains company name and page title)
+          text = text.replace(/\s+/g, ' ').trim();
         }
       }
       
@@ -127,6 +130,7 @@ function extractAndAnalyzeStructuredJob() {
       employmentType: getElementText("time", container),
       jobId: getElementText("requisitionId", container),
       aboutCompany: getElementText("jobSidebar", container),
+      header: getElementText("header"),  // NEW: Extract header information
       fullJobDescription: getFullJobText(container),
       url: window.location.href,
       scrapedAt: new Date().toISOString(),
@@ -185,8 +189,14 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
           <strong>Title:</strong> ${jobData.jobTitle}<br>
           <strong>Location:</strong> ${jobData.location}<br>
           <strong>Work Type:</strong> ${jobData.employmentType}<br>
-          <strong>Job ID:</strong> ${jobData.jobId}<br>
-        </div>
+          <strong>Job ID:</strong> ${jobData.jobId}<br>`;
+      
+      // Show company name if extracted
+      if (data.job_metadata && data.job_metadata.company_name) {
+        detailsHTML += `<strong>Company:</strong> ${data.job_metadata.company_name}<br>`;
+      }
+      
+      detailsHTML += `</div>
       </div>`;
     }
     
