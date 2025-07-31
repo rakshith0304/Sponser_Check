@@ -2,8 +2,11 @@ from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
 import re
-from typing import List
+from typing import List, Optional
 from dataclasses import dataclass
+from pydantic import BaseModel
+import json
+from datetime import datetime
 
 app = FastAPI()
 
@@ -15,6 +18,18 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# Pydantic models for structured data
+class JobData(BaseModel):
+    jobTitle: str
+    location: str
+    employmentType: str
+    jobId: str
+    aboutCompany: str
+    fullJobDescription: str
+    url: str
+    scrapedAt: str
+    platform: str
+
 @dataclass
 class SponsorshipAnalysis:
     likely_sponsors: bool
@@ -25,7 +40,7 @@ class SponsorshipAnalysis:
 
 class VisaSponsorshipAnalyzer:
     def __init__(self):
-        # EXPLICIT NO SPONSORSHIP patterns (95% confidence NO)
+        # EXPLICIT NO SPONSORSHIP patterns (90% confidence NO)
         self.no_sponsorship_patterns = [
             # Direct visa restrictions
             r"no visa sponsorship",
@@ -38,6 +53,8 @@ class VisaSponsorshipAnalyzer:
             r"visa sponsorship is not provided",
             r"we are unable to sponsor",
             r"not able to sponsor",
+            r"does not sponsor",
+            r"unable to provide sponsorship",
             
             # Work authorization requirements
             r"must be authorized to work",
@@ -49,6 +66,7 @@ class VisaSponsorshipAnalyzer:
             r"work authorization required",
             r"employment authorization required",
             r"require work authorization",
+            r"current work authorization",
             
             # Citizenship/permanent residency requirements
             r"citizens only",
@@ -60,6 +78,7 @@ class VisaSponsorshipAnalyzer:
             r"permanent resident status required",
             r"must be a us citizen",
             r"only us citizens",
+            r"us citizen or permanent resident",
             
             # Security clearance (typically requires citizenship)
             r"security clearance required",
@@ -69,9 +88,12 @@ class VisaSponsorshipAnalyzer:
             r"secret clearance",
             r"top secret clearance",
             r"confidential clearance",
+            r"only u\.s\. citizens are eligible",
+            r"must be eligible for.*clearance",
+            r"due to.*government contract requirements",
         ]
         
-        # EXPLICIT YES SPONSORSHIP patterns (High confidence YES)
+        # EXPLICIT YES SPONSORSHIP patterns (90% confidence YES)
         self.yes_sponsorship_patterns = [
             r"visa sponsorship available",
             r"h1b friendly",
@@ -85,29 +107,19 @@ class VisaSponsorshipAnalyzer:
             r"immigration assistance",
             r"work visa support",
             r"h1b transfers welcome",
-            r"international candidates welcome",
             r"will provide sponsorship",
             r"sponsor h1b",
             r"sponsor work visa",
-        ]
-        
-        # Neutral/ambiguous patterns that suggest possible sponsorship
-        self.maybe_sponsorship_patterns = [
-            r"international candidates",
-            r"global talent",
-            r"diverse backgrounds",
-            r"all qualified applicants",
-            r"equal opportunity",
-            r"worldwide talent",
-            r"relocation assistance",
-            r"relocation package",
-            r"work from anywhere",
-            r"remote candidates",
+            r"provides visa sponsorship",
+            r"offers visa sponsorship",
+            r"sponsorship is available",
+            r"we will sponsor",
+            r"able to sponsor",
+            r"can sponsor",
         ]
 
     def clean_text(self, text: str) -> str:
         """Clean and normalize text for analysis"""
-        # Convert to lowercase and normalize whitespace
         text = re.sub(r'\s+', ' ', text.lower().strip())
         return text
 
@@ -134,18 +146,18 @@ class VisaSponsorshipAnalyzer:
         
         cleaned_text = self.clean_text(text)
         
-        # Check for explicit NO sponsorship patterns
+        # Step 1: Check for explicit NO sponsorship patterns (highest priority)
         no_sponsorship_matches = self.find_patterns(cleaned_text, self.no_sponsorship_patterns)
         if no_sponsorship_matches:
             return SponsorshipAnalysis(
                 likely_sponsors=False,
-                confidence=0.95,
-                reasoning="Explicit visa sponsorship restrictions found",
+                confidence=0.90,
+                reasoning="Explicit restrictions against visa sponsorship found",
                 positive_indicators=[],
-                negative_indicators=no_sponsorship_matches[:3]  # Show first 3 matches
+                negative_indicators=no_sponsorship_matches[:3]
             )
         
-        # Check for explicit YES sponsorship patterns
+        # Step 2: Check for explicit YES sponsorship patterns
         yes_sponsorship_matches = self.find_patterns(cleaned_text, self.yes_sponsorship_patterns)
         if yes_sponsorship_matches:
             return SponsorshipAnalysis(
@@ -156,59 +168,101 @@ class VisaSponsorshipAnalyzer:
                 negative_indicators=[]
             )
         
-        # Check for neutral/maybe patterns
-        maybe_matches = self.find_patterns(cleaned_text, self.maybe_sponsorship_patterns)
-        
-        if maybe_matches:
-            # Some positive signals but not explicit
-            confidence = min(0.4 + (len(maybe_matches) * 0.1), 0.7)  # Cap at 0.7
-            likely = confidence >= 0.5
-            
-            return SponsorshipAnalysis(
-                likely_sponsors=likely,
-                confidence=confidence,
-                reasoning=f"Found {len(maybe_matches)} neutral/positive indicator(s) but no explicit sponsorship mention",
-                positive_indicators=maybe_matches[:3],
-                negative_indicators=[]
-            )
-        
-        # No clear indicators either way
+        # Step 3: No explicit indicators found - default to NO
         return SponsorshipAnalysis(
             likely_sponsors=False,
-            confidence=0.3,
-            reasoning="No clear sponsorship indicators found - likely does not sponsor",
+            confidence=0.60,
+            reasoning="No explicit sponsorship indicators found - most companies that sponsor mention it explicitly",
             positive_indicators=[],
-            negative_indicators=["No sponsorship indicators"]
+            negative_indicators=["No sponsorship mentioned"]
         )
+
+def save_job_data(job_data: JobData, analysis: SponsorshipAnalysis):
+    """Save job data and analysis results to a file (for future database integration)"""
+    try:
+        # Create a record with all information
+        record = {
+            "job_info": job_data.dict(),
+            "analysis": {
+                "likely_sponsors": analysis.likely_sponsors,
+                "confidence": analysis.confidence,
+                "reasoning": analysis.reasoning,
+                "positive_indicators": analysis.positive_indicators,
+                "negative_indicators": analysis.negative_indicators
+            },
+            "analyzed_at": datetime.now().isoformat()
+        }
+        
+        # Save to JSON file (can be replaced with database later)
+        filename = f"job_analyses.jsonl"
+        with open(filename, "a", encoding="utf-8") as f:
+            f.write(json.dumps(record) + "\n")
+            
+        print(f"✅ Saved job analysis: {job_data.jobTitle} - {job_data.jobId}")
+        
+    except Exception as e:
+        print(f"❌ Error saving job data: {e}")
 
 # Initialize analyzer
 analyzer = VisaSponsorshipAnalyzer()
 
+@app.post("/analyze-job")
+async def analyze_job_posting(job_data: JobData):
+    """Analyze structured job data for visa sponsorship"""
+    
+    # Perform sponsorship analysis on full job description
+    analysis = analyzer.analyze_sponsorship(job_data.fullJobDescription)
+    
+    # Save the data and analysis results
+    save_job_data(job_data, analysis)
+    
+    # Determine result status for UI
+    if analysis.likely_sponsors:
+        status = "yes"
+        color = "green" 
+        message = "✅ SPONSORS VISA"
+    else:
+        status = "no"
+        color = "red"
+        message = "❌ NO SPONSORSHIP"
+    
+    return {
+        "status": status,
+        "color": color,
+        "message": message,
+        "confidence": round(analysis.confidence, 2),
+        "reasoning": analysis.reasoning,
+        "positive_indicators": analysis.positive_indicators,
+        "negative_indicators": analysis.negative_indicators,
+        "job_metadata": {
+            "title": job_data.jobTitle,
+            "location": job_data.location,
+            "employment_type": job_data.employmentType,
+            "job_id": job_data.jobId,
+            "platform": job_data.platform
+        }
+    }
+
+# Keep the old endpoint for backward compatibility
 @app.post("/save")
-async def analyze_sponsorship(req: Request):
+async def analyze_sponsorship_legacy(req: Request):
+    """Legacy endpoint for backward compatibility"""
     data = await req.json()
     text = data.get("text", "")
+    url = data.get("url", "")
     
     # Perform sponsorship analysis
     analysis = analyzer.analyze_sponsorship(text)
     
     # Determine result status for UI
-    if analysis.confidence >= 0.8 and analysis.likely_sponsors:
+    if analysis.likely_sponsors:
         status = "yes"
-        color = "green"
-        message = "✅ LIKELY SPONSORS"
-    elif analysis.likely_sponsors and analysis.confidence >= 0.5:
-        status = "yes"
-        color = "green"
-        message = "✅ PROBABLY SPONSORS"
-    elif analysis.confidence >= 0.4:
-        status = "unknown"
-        color = "yellow"
-        message = "⚠️ UNCLEAR"
+        color = "green" 
+        message = "✅ SPONSORS VISA"
     else:
         status = "no"
         color = "red"
-        message = "❌ LIKELY NO SPONSORSHIP"
+        message = "❌ NO SPONSORSHIP"
     
     return {
         "status": status,
@@ -220,5 +274,13 @@ async def analyze_sponsorship(req: Request):
         "negative_indicators": analysis.negative_indicators
     }
 
+@app.get("/health")
+async def health_check():
+    """Health check endpoint"""
+    return {"status": "healthy", "message": "Workday Job Analyzer API is running"}
+
 if __name__ == "__main__":
+    print("🚀 Starting Workday Job Analyzer API...")
+    print("📊 Structured data extraction enabled")
+    print("💾 Job data will be saved to job_analyses.jsonl")
     uvicorn.run("main:app", host="127.0.0.1", port=8000, reload=True)
