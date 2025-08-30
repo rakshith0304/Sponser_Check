@@ -1,4 +1,4 @@
-// content.js - Enhanced version with JSON-LD extraction for company name
+// content.js - Updated to extract JSON-LD company name and send to main
 function extractStructuredJobData() {
   const container = document.querySelector('[data-automation-id="jobPostingPage"]');
   if (!container) {
@@ -9,8 +9,8 @@ function extractStructuredJobData() {
     };
   }
 
-  // Helper function to extract JSON-LD data
-  function extractJsonLdData() {
+  // Helper function to extract JSON-LD company name only
+  function extractJsonLdCompanyName() {
     try {
       const scriptElements = document.querySelectorAll('script[type="application/ld+json"]');
       if (!scriptElements.length) return null;
@@ -38,16 +38,11 @@ function extractStructuredJobData() {
 
       if (!jobPosting) return null;
 
-      return {
-        companyName: jobPosting.hiringOrganization?.name || 
-                   jobPosting.hiringOrganization?.legalName,
-        companyUrl: jobPosting.hiringOrganization?.url,
-        jobLocation: jobPosting.jobLocation?.address?.addressLocality,
-        baseSalary: jobPosting.baseSalary,
-        employmentType: jobPosting.employmentType
-      };
+      // Only return company name
+      return jobPosting.hiringOrganization?.name || 
+             jobPosting.hiringOrganization?.legalName || null;
     } catch (e) {
-      console.log('Error extracting JSON-LD:', e);
+      console.log('Error extracting JSON-LD company name:', e);
       return null;
     }
   }
@@ -112,22 +107,21 @@ function extractStructuredJobData() {
     return text.trim();
   }
 
-  // Extract JSON-LD data first
-  const jsonLdData = extractJsonLdData();
+  // Extract JSON-LD company name
+  const jsonLdCompanyName = extractJsonLdCompanyName();
 
   // Extract structured data
   const jobData = {
     // Basic job information
     jobTitle: getElementText("jobPostingHeader", container),
-    location: getElementText("locations", container) || jsonLdData?.jobLocation,
-    employmentType: getElementText("time", container) || jsonLdData?.employmentType,
+    location: getElementText("locations", container),
+    employmentType: getElementText("time", container),
     jobId: getElementText("requisitionId", container),
     aboutCompany: getElementText("jobSidebar", container),
     header: getElementText("header"),
     
-    // Company information from JSON-LD
-    companyName: jsonLdData?.companyName,
-    companyUrl: jsonLdData?.companyUrl,
+    // Company information from JSON-LD (to be sent to main for processing)
+    jsonLdCompanyName: jsonLdCompanyName,
     
     // Full job description for analysis
     fullJobDescription: getFullJobText(container),
@@ -135,10 +129,7 @@ function extractStructuredJobData() {
     // Additional metadata
     url: window.location.href,
     scrapedAt: new Date().toISOString(),
-    platform: "workday",
-    
-    // Raw JSON-LD data for debugging
-    _jsonLd: jsonLdData
+    platform: "workday"
   };
 
   // Clean up null values

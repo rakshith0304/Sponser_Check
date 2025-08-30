@@ -1,4 +1,4 @@
-// popup.js - Enhanced version with structured data handling and header support
+// popup.js - Updated to use simplified data extraction
 document.getElementById("checkBtn").addEventListener("click", () => {
   const statusDiv = document.getElementById("status");
   const resultDiv = document.getElementById("result");
@@ -55,7 +55,7 @@ function extractAndAnalyzeStructuredJob() {
       });
     });
 
-  // Helper function for structured data extraction (same as in content.js)
+  // Helper function for structured data extraction (simplified version)
   function extractStructuredJobData() {
     const container = document.querySelector('[data-automation-id="jobPostingPage"]');
     if (!container) {
@@ -66,13 +66,47 @@ function extractAndAnalyzeStructuredJob() {
       };
     }
 
+    // Helper function to extract JSON-LD company name only
+    function extractJsonLdCompanyName() {
+      try {
+        const scriptElements = document.querySelectorAll('script[type="application/ld+json"]');
+        if (!scriptElements.length) return null;
+
+        const results = [];
+        for (const script of scriptElements) {
+          try {
+            const jsonData = JSON.parse(script.textContent);
+            if (Array.isArray(jsonData)) {
+              jsonData.forEach(item => results.push(item));
+            } else {
+              results.push(jsonData);
+            }
+          } catch (e) {
+            console.log('Error parsing JSON-LD:', e);
+          }
+        }
+
+        const jobPosting = results.find(item => 
+          item['@type'] === 'JobPosting' || 
+          (Array.isArray(item['@type']) && item['@type'].includes('JobPosting'))
+        );
+
+        if (!jobPosting) return null;
+
+        return jobPosting.hiringOrganization?.name || 
+               jobPosting.hiringOrganization?.legalName || null;
+      } catch (e) {
+        console.log('Error extracting JSON-LD company name:', e);
+        return null;
+      }
+    }
+
     function getElementText(automationId, context = document) {
       const element = context.querySelector(`[data-automation-id="${automationId}"]`);
       if (!element) return null;
       
       let text = "";
       
-      // Special handling for time field - extract from dd element
       if (automationId === "time") {
         const dl = element.querySelector("dl");
         if (dl) {
@@ -84,25 +118,18 @@ function extractAndAnalyzeStructuredJob() {
       } else {
         text = element.innerText?.trim() || element.textContent?.trim() || "";
         
-        // Clean up specific patterns for other fields
         if (automationId === "requisitionId") {
-          // Extract job ID - remove "job requisition id" prefix
           text = text.replace(/^job\s*requisition\s*id\s*/i, '').trim();
         } else if (automationId === "locations") {
-          // Keep location as is, but clean whitespace
           text = text.replace(/\s+/g, ' ').trim();
         } else if (automationId === "jobPostingHeader") {
-          // Clean job title
           text = text.replace(/\s+/g, ' ').trim();
         } else if (automationId === "header") {
-          // Clean header text (often contains company name and page title)
           text = text.replace(/\s+/g, ' ').trim();
         }
       }
       
-      // General cleanup
       text = text.replace(/\s+/g, ' ').trim();
-      
       return text || null;
     }
 
@@ -124,13 +151,16 @@ function extractAndAnalyzeStructuredJob() {
       return text.trim();
     }
 
+    const jsonLdCompanyName = extractJsonLdCompanyName();
+
     const jobData = {
       jobTitle: getElementText("jobPostingHeader", container),
       location: getElementText("locations", container),
       employmentType: getElementText("time", container),
       jobId: getElementText("requisitionId", container),
       aboutCompany: getElementText("jobSidebar", container),
-      header: getElementText("header"),  // NEW: Extract header information
+      header: getElementText("header"),
+      jsonLdCompanyName: jsonLdCompanyName,
       fullJobDescription: getFullJobText(container),
       url: window.location.href,
       scrapedAt: new Date().toISOString(),
@@ -191,9 +221,9 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
           <strong>Work Type:</strong> ${jobData.employmentType}<br>
           <strong>Job ID:</strong> ${jobData.jobId}<br>`;
       
-      // Show company name if extracted
-      if (data.job_metadata && data.job_metadata.company_name) {
-        detailsHTML += `<strong>Company:</strong> ${data.job_metadata.company_name}<br>`;
+      // Show final selected company name
+      if (data.job_metadata && data.job_metadata.final_company_name) {
+        detailsHTML += `<strong>Company:</strong> ${data.job_metadata.final_company_name}<br>`;
       }
       
       detailsHTML += `</div>
@@ -222,6 +252,17 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
         <ul>`;
       data.negative_indicators.forEach(indicator => {
         detailsHTML += `<li>${indicator}</li>`;
+      });
+      detailsHTML += `</ul></div>`;
+    }
+
+    // Show company analysis if available
+    if (data.company_analysis && data.company_analysis.length > 0) {
+      detailsHTML += `<div class="company-analysis">
+        <strong>Company Analysis:</strong>
+        <ul>`;
+      data.company_analysis.forEach(analysis => {
+        detailsHTML += `<li>${analysis}</li>`;
       });
       detailsHTML += `</ul></div>`;
     }
