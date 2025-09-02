@@ -1,4 +1,4 @@
-// popup.js - Updated to use simplified data extraction
+// popup.js - Updated to include H1B search functionality
 document.getElementById("checkBtn").addEventListener("click", () => {
   const statusDiv = document.getElementById("status");
   const resultDiv = document.getElementById("result");
@@ -18,6 +18,103 @@ document.getElementById("checkBtn").addEventListener("click", () => {
     });
   });
 });
+
+// H1B Search functionality
+document.getElementById("searchBtn").addEventListener("click", () => {
+  performH1BSearch();
+});
+
+document.getElementById("companySearchInput").addEventListener("keypress", (e) => {
+  if (e.key === "Enter") {
+    performH1BSearch();
+  }
+});
+
+async function performH1BSearch() {
+  const searchInput = document.getElementById("companySearchInput");
+  const searchBtn = document.getElementById("searchBtn");
+  const searchStatus = document.getElementById("searchStatus");
+  const searchResult = document.getElementById("searchResult");
+  
+  const companyName = searchInput.value.trim();
+  
+  if (!companyName) {
+    searchStatus.innerText = "Please enter a company name";
+    searchResult.style.display = "none";
+    return;
+  }
+  
+  // Show loading state
+  searchBtn.disabled = true;
+  searchStatus.innerText = "Searching H1B database...";
+  searchResult.style.display = "none";
+  
+  try {
+    const response = await fetch("http://127.0.0.1:8000/search-h1b-company", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ company_name: companyName }),
+    });
+    
+    if (!response.ok) {
+      throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+    }
+    
+    const data = await response.json();
+    displayH1BSearchResult(data);
+    
+  } catch (error) {
+    searchStatus.innerText = "Error connecting to server";
+    searchResult.innerHTML = `<div class="search-result-not-found">
+      <strong>Connection Error</strong><br>
+      Unable to connect to H1B search service. Please make sure the backend server is running.
+    </div>`;
+    searchResult.style.display = "block";
+  } finally {
+    searchBtn.disabled = false;
+  }
+}
+
+function displayH1BSearchResult(data) {
+  const searchStatus = document.getElementById("searchStatus");
+  const searchResult = document.getElementById("searchResult");
+  
+  searchStatus.innerText = "";
+  
+  if (data.found) {
+    searchResult.className = "search-result-found";
+    
+    let resultHTML = `<strong>${data.message}</strong>`;
+    
+    if (data.yearly_breakdown) {
+      resultHTML += '<div class="search-details">';
+      resultHTML += '<strong>Year-wise breakdown:</strong><br>';
+      
+      const years = Object.keys(data.yearly_breakdown).sort();
+      years.forEach(year => {
+        resultHTML += `${year}: ${data.yearly_breakdown[year]} applications<br>`;
+      });
+      
+      if (data.average_per_year) {
+        resultHTML += `<br><strong>Average per year:</strong> ${data.average_per_year}`;
+      }
+      
+      if (data.match_confidence) {
+        resultHTML += `<br><strong>Match confidence:</strong> ${Math.round(data.match_confidence * 100)}%`;
+      }
+      
+      resultHTML += '</div>';
+    }
+    
+    searchResult.innerHTML = resultHTML;
+    
+  } else {
+    searchResult.className = "search-result-not-found";
+    searchResult.innerHTML = `<strong>No Records Found</strong><br>${data.message}`;
+  }
+  
+  searchResult.style.display = "block";
+}
 
 function extractAndAnalyzeStructuredJob() {
   // Extract structured job data
@@ -61,7 +158,7 @@ function extractAndAnalyzeStructuredJob() {
     if (!container) {
       return { 
         success: false, 
-        error: "❌ jobPostingPage not found. Make sure you're on a Workday job posting page.",
+        error: "jobPostingPage not found. Make sure you're on a Workday job posting page.",
         data: null 
       };
     }
@@ -121,7 +218,7 @@ function extractAndAnalyzeStructuredJob() {
         if (automationId === "requisitionId") {
           text = text.replace(/^job\s*requisition\s*id\s*/i, '').trim();
         } else if (automationId === "locations") {
-          text = text.replace(/\s+/g, ' ').trim();
+          text = text.replace(/^(Location:|locations)\s*/i, '').trim();
         } else if (automationId === "jobPostingHeader") {
           text = text.replace(/\s+/g, ' ').trim();
         } else if (automationId === "header") {
@@ -195,7 +292,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     
     if (message.error) {
       resultDiv.className = "result-no";
-      resultDiv.innerHTML = "❌ ERROR<br>" + message.error;
+      resultDiv.innerHTML = "ERROR<br>" + message.error;
       resultDiv.style.display = "block";
       return;
     }
@@ -205,8 +302,16 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     
     // Show sponsorship result
     resultDiv.className = `result-${data.status}`;
-    resultDiv.innerHTML = `${data.message}<br><small>Confidence: ${(data.confidence * 100).toFixed(0)}%</small>`;
+    resultDiv.innerHTML = `${data.message}<br>`;
     resultDiv.style.display = "block";
+    
+    // Auto-populate H1B search with company name if available
+    if (jobData && jobData.jsonLdCompanyName && jobData.jsonLdCompanyName !== "Not found") {
+      const searchInput = document.getElementById("companySearchInput");
+      if (!searchInput.value.trim()) { // Only populate if empty
+        searchInput.value = jobData.jsonLdCompanyName;
+      }
+    }
     
     // Enhanced details with job information
     let detailsHTML = "";
@@ -221,9 +326,8 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
           <strong>Work Type:</strong> ${jobData.employmentType}<br>
           <strong>Job ID:</strong> ${jobData.jobId}<br>`;
       
-      // Show final selected company name
-      if (data.job_metadata && data.job_metadata.final_company_name) {
-        detailsHTML += `<strong>Company:</strong> ${data.job_metadata.final_company_name}<br>`;
+      if (jobData.jsonLdCompanyName && jobData.jsonLdCompanyName !== "Not found") {
+        detailsHTML += `<strong>Company:</strong> ${jobData.jsonLdCompanyName}<br>`;
       }
       
       detailsHTML += `</div>
@@ -241,7 +345,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
         <strong>Positive Indicators:</strong>
         <ul>`;
       data.positive_indicators.forEach(indicator => {
-        detailsHTML += `<li>${indicator}</li>`;
+        detailsHTML += `<li class="positive-indicator">${indicator}</li>`;
       });
       detailsHTML += `</ul></div>`;
     }
@@ -251,7 +355,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
         <strong>Negative Indicators:</strong>
         <ul>`;
       data.negative_indicators.forEach(indicator => {
-        detailsHTML += `<li>${indicator}</li>`;
+        detailsHTML += `<li class="negative-indicator">${indicator}</li>`;
       });
       detailsHTML += `</ul></div>`;
     }

@@ -4,7 +4,7 @@ function extractStructuredJobData() {
   if (!container) {
     return { 
       success: false, 
-      error: "❌ jobPostingPage not found. Make sure you're on a Workday job posting page.",
+      error: "jobPostingPage not found. Make sure you're on a Workday job posting page.",
       data: null 
     };
   }
@@ -71,8 +71,8 @@ function extractStructuredJobData() {
         // Extract job ID - remove "job requisition id" prefix
         text = text.replace(/^job\s*requisition\s*id\s*/i, '').trim();
       } else if (automationId === "locations") {
-        // Keep location as is, but clean whitespace
-        text = text.replace(/\s+/g, ' ').trim();
+        // Remove both "locations" and "Location:" prefixes and clean whitespace
+        text = text.replace(/^(locations|Location):\s*/i, '').replace(/\s+/g, ' ').trim();
       } else if (automationId === "jobPostingHeader") {
         // Clean job title
         text = text.replace(/\s+/g, ' ').trim();
